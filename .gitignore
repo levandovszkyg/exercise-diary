@@ -1,0 +1,9 @@
+// IntelliJ
+.idea/
+exercise-diary.iml
+
+api/target/
+client/dist/
+client/node/
+client/node_modules/
+client/target/
