@@ -3,6 +3,8 @@
 exercise-diary.iml
 
 api/target/
+api/src/main/resources/static/**
+
 client/dist/
 client/node/
 client/node_modules/
