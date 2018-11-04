@@ -1,0 +1,56 @@
+@import '~src/styles/variables.scss';
+
+.input-block {
+    background-color: rgba($divider-color, .3);
+    border-radius: 20px;
+    display: flex;
+    height: 40px;
+
+    .icon-block {
+        margin: 10px;
+    }
+
+    .fa {  
+        opacity: .5;
+    }
+
+    input {
+        background-color: transparent;
+        border: none;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.btn {
+    background-color: $primary-color-dark;
+    color: $primary-color-text;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.btn-caps {
+    text-transform: uppercase;
+}
+
+.btn-full-width {
+    width: 100%;
+}
+
+.form-content {
+    padding: 20px;
+
+    div {
+        margin: 20px 0;
+    }
+}

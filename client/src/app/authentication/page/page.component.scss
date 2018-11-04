@@ -1,0 +1,27 @@
+@import '~src/styles/variables.scss';
+
+.content {
+    max-width: 400px;
+    margin: 200px auto;
+
+    .tab-header {
+        display: flex;
+
+        .tab {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1.3em;
+            padding: 20px;
+            text-align: center;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: $hover-color;
+            }
+
+            &.active {
+                border-bottom: 2px solid $primary-color;
+            }
+        }
+    }
+}

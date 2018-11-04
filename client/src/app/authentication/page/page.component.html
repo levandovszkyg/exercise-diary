@@ -1,0 +1,14 @@
+<div class="content">
+  <div class="tab-header">
+    <div class="tab" [class.active]="isPageState('LOGIN')" (click)="setPageState('LOGIN')">
+      Sign in
+    </div>
+    <div class="tab" [class.active]="isPageState('SIGN_UP')" (click)="setPageState('SIGN_UP')">
+      Sign up
+    </div>
+  </div>
+  <div class="tab-content">
+    <app-login *ngIf="isPageState('LOGIN')"></app-login>
+    <app-sign-up *ngIf="isPageState('SIGN_UP')"></app-sign-up>
+  </div>
+</div>

@@ -23,17 +23,6 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/app.component.css":
-/*!***********************************!*\
-  !*** ./src/app/app.component.css ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/app.component.html":
 /*!************************************!*\
   !*** ./src/app/app.component.html ***!
@@ -41,7 +30,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div style=\"text-align:center\">\r\n  <h1>\r\n    Welcome to {{ title }}!\r\n  </h1>\r\n  <img width=\"300\" alt=\"Angular Logo\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\r\n</div>\r\n<h2>Here are some links to help you start: </h2>\r\n<ul>\r\n  <li>\r\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\r\n  </li>\r\n  <li>\r\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\r\n  </li>\r\n  <li>\r\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\r\n  </li>\r\n</ul>\r\n\r\n"
+module.exports = "<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -62,17 +51,21 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
-        this.title = 'app';
+    function AppComponent(renderer) {
+        this.renderer = renderer;
+        this.renderer.addClass(document.body, 'font-setup');
     }
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
-            styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html")
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -94,6 +87,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _authentication_authentication_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./authentication/authentication.module */ "./src/app/authentication/authentication.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -103,6 +98,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+var appRoutes = [
+    {
+        path: '',
+        redirectTo: '/client/login',
+        pathMatch: 'full'
+    }
+];
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -112,13 +116,266 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(appRoutes),
+                _authentication_authentication_module__WEBPACK_IMPORTED_MODULE_4__["AuthenticationModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/authentication/authentication.module.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/authentication/authentication.module.ts ***!
+  \*********************************************************/
+/*! exports provided: AuthenticationModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationModule", function() { return AuthenticationModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login.component */ "./src/app/authentication/login/login.component.ts");
+/* harmony import */ var _page_page_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./page/page.component */ "./src/app/authentication/page/page.component.ts");
+/* harmony import */ var _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sign-up/sign-up.component */ "./src/app/authentication/sign-up/sign-up.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+var routes = [
+    { path: 'client/login', component: _page_page_component__WEBPACK_IMPORTED_MODULE_4__["PageComponent"] }
+];
+var AuthenticationModule = /** @class */ (function () {
+    function AuthenticationModule() {
+    }
+    AuthenticationModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)
+            ],
+            declarations: [_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"], _page_page_component__WEBPACK_IMPORTED_MODULE_4__["PageComponent"], _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_5__["SignUpComponent"]]
+        })
+    ], AuthenticationModule);
+    return AuthenticationModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/authentication/login/login.component.html":
+/*!***********************************************************!*\
+  !*** ./src/app/authentication/login/login.component.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form autocomplete=\"off\">\n  <div class=\"form-content\">\n    <div class=\"input-block\">\n      <div class=\"icon-block\">\n        <i class=\"fa fa-user\"></i>\n      </div>\n      <input type=\"text\" name=\"username\" placeholder=\"Username\">\n    </div>\n    <div class=\"input-block\">\n      <div class=\"icon-block\">\n        <i class=\"fa fa-key\"></i>\n      </div>\n      <input type=\"text\" name=\"password\" placeholder=\"Password\">\n    </div>\n    <div>\n      <button class=\"btn btn-caps btn-full-width\">Sign in</button>\n    </div>\n\n  </div>\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/authentication/login/login.component.scss":
+/*!***********************************************************!*\
+  !*** ./src/app/authentication/login/login.component.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "@font-face {\n  font-family: 'Roboto';\n  src: url(\"/assets/font/Roboto/Roboto-Regular.ttf\"); }\n\n.input-block {\n  background-color: rgba(189, 189, 189, 0.3);\n  border-radius: 20px;\n  display: flex;\n  height: 40px; }\n\n.input-block .icon-block {\n    margin: 10px; }\n\n.input-block .fa {\n    opacity: .5; }\n\n.input-block input {\n    background-color: transparent;\n    border: none;\n    border-bottom-right-radius: 20px;\n    border-top-right-radius: 20px;\n    width: 100%; }\n\n.input-block input:focus {\n      outline: none; }\n\n.btn {\n  background-color: #1976D2;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 20px;\n  padding: 10px; }\n\n.btn:focus {\n    outline: none; }\n\n.btn-caps {\n  text-transform: uppercase; }\n\n.btn-full-width {\n  width: 100%; }\n\n.form-content {\n  padding: 20px; }\n\n.form-content div {\n    margin: 20px 0; }\n"
+
+/***/ }),
+
+/***/ "./src/app/authentication/login/login.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/authentication/login/login.component.ts ***!
+  \*********************************************************/
+/*! exports provided: LoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent() {
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-login',
+            template: __webpack_require__(/*! ./login.component.html */ "./src/app/authentication/login/login.component.html"),
+            styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/authentication/login/login.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LoginComponent);
+    return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/authentication/page/page.component.html":
+/*!*********************************************************!*\
+  !*** ./src/app/authentication/page/page.component.html ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"content\">\n  <div class=\"tab-header\">\n    <div class=\"tab\" [class.active]=\"isPageState('LOGIN')\" (click)=\"setPageState('LOGIN')\">\n      Sign in\n    </div>\n    <div class=\"tab\" [class.active]=\"isPageState('SIGN_UP')\" (click)=\"setPageState('SIGN_UP')\">\n      Sign up\n    </div>\n  </div>\n  <div class=\"tab-content\">\n    <app-login *ngIf=\"isPageState('LOGIN')\"></app-login>\n    <app-sign-up *ngIf=\"isPageState('SIGN_UP')\"></app-sign-up>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/authentication/page/page.component.scss":
+/*!*********************************************************!*\
+  !*** ./src/app/authentication/page/page.component.scss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "@font-face {\n  font-family: 'Roboto';\n  src: url(\"/assets/font/Roboto/Roboto-Regular.ttf\"); }\n\n.content {\n  max-width: 400px;\n  margin: 200px auto; }\n\n.content .tab-header {\n    display: flex; }\n\n.content .tab-header .tab {\n      cursor: pointer;\n      flex: 1;\n      font-size: 1.3em;\n      padding: 20px;\n      text-align: center;\n      text-transform: uppercase; }\n\n.content .tab-header .tab:hover {\n        background-color: #EEEEEE; }\n\n.content .tab-header .tab.active {\n        border-bottom: 2px solid #2196F3; }\n"
+
+/***/ }),
+
+/***/ "./src/app/authentication/page/page.component.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/authentication/page/page.component.ts ***!
+  \*******************************************************/
+/*! exports provided: PageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageComponent", function() { return PageComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PageComponent = /** @class */ (function () {
+    function PageComponent() {
+        this.pageState = PageState.LOGIN;
+    }
+    PageComponent.prototype.ngOnInit = function () {
+    };
+    PageComponent.prototype.isPageState = function (state) {
+        return this.pageState === PageState[state];
+    };
+    PageComponent.prototype.setPageState = function (state) {
+        return this.pageState = PageState[state];
+    };
+    PageComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-page',
+            template: __webpack_require__(/*! ./page.component.html */ "./src/app/authentication/page/page.component.html"),
+            styles: [__webpack_require__(/*! ./page.component.scss */ "./src/app/authentication/page/page.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PageComponent);
+    return PageComponent;
+}());
+
+var PageState;
+(function (PageState) {
+    PageState[PageState["LOGIN"] = 0] = "LOGIN";
+    PageState[PageState["SIGN_UP"] = 1] = "SIGN_UP";
+})(PageState || (PageState = {}));
+
+
+/***/ }),
+
+/***/ "./src/app/authentication/sign-up/sign-up.component.html":
+/*!***************************************************************!*\
+  !*** ./src/app/authentication/sign-up/sign-up.component.html ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form autocomplete=\"off\">\n  <div class=\"form-content\">\n    <div class=\"input-block\">\n      <div class=\"icon-block\">\n        <i class=\"fa fa-user\"></i>\n      </div>\n      <input type=\"text\" name=\"username\" placeholder=\"Username\">\n    </div>\n    <div class=\"input-block\">\n      <div class=\"icon-block\">\n        <i class=\"fa fa-envelope\"></i>\n      </div>\n      <input type=\"text\" name=\"email\" placeholder=\"E-mail\">\n    </div>\n    <div class=\"input-block\">\n      <div class=\"icon-block\">\n        <i class=\"fa fa-key\"></i>\n      </div>\n      <input type=\"text\" name=\"password\" placeholder=\"Password\">\n    </div>\n    <div class=\"input-block\">\n      <div class=\"icon-block\">\n        <i class=\"fa fa-key\"></i>\n      </div>\n      <input type=\"text\" name=\"confirmPassword\" placeholder=\"Confirm Password\">\n    </div>\n    <div>\n      <button class=\"btn btn-caps btn-full-width\">Sign up</button>\n    </div>\n  </div>\n</form>\n"
+
+/***/ }),
+
+/***/ "./src/app/authentication/sign-up/sign-up.component.scss":
+/*!***************************************************************!*\
+  !*** ./src/app/authentication/sign-up/sign-up.component.scss ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "@font-face {\n  font-family: 'Roboto';\n  src: url(\"/assets/font/Roboto/Roboto-Regular.ttf\"); }\n\n.input-block {\n  background-color: rgba(189, 189, 189, 0.3);\n  border-radius: 20px;\n  display: flex;\n  height: 40px; }\n\n.input-block .icon-block {\n    margin: 10px; }\n\n.input-block .fa {\n    opacity: .5; }\n\n.input-block input {\n    background-color: transparent;\n    border: none;\n    border-bottom-right-radius: 20px;\n    border-top-right-radius: 20px;\n    width: 100%; }\n\n.input-block input:focus {\n      outline: none; }\n\n.btn {\n  background-color: #1976D2;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 20px;\n  padding: 10px; }\n\n.btn:focus {\n    outline: none; }\n\n.btn-caps {\n  text-transform: uppercase; }\n\n.btn-full-width {\n  width: 100%; }\n\n.form-content {\n  padding: 20px; }\n\n.form-content div {\n    margin: 20px 0; }\n"
+
+/***/ }),
+
+/***/ "./src/app/authentication/sign-up/sign-up.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/authentication/sign-up/sign-up.component.ts ***!
+  \*************************************************************/
+/*! exports provided: SignUpComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignUpComponent", function() { return SignUpComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SignUpComponent = /** @class */ (function () {
+    function SignUpComponent() {
+    }
+    SignUpComponent.prototype.ngOnInit = function () {
+    };
+    SignUpComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-sign-up',
+            template: __webpack_require__(/*! ./sign-up.component.html */ "./src/app/authentication/sign-up/sign-up.component.html"),
+            styles: [__webpack_require__(/*! ./sign-up.component.scss */ "./src/app/authentication/sign-up/sign-up.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SignUpComponent);
+    return SignUpComponent;
 }());
 
 
